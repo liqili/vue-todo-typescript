@@ -14,10 +14,17 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
+export interface TodoItem {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+}
+
 @Component
 export default class TodoList extends Vue {
   @Prop() private title!: string;
-  @Prop({ default: [] }) private todoItems!: string[];
+  @Prop({ default: [] }) private todoItems!: TodoItem[];
 }
 </script>
 
